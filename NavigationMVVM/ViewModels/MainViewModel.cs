@@ -15,7 +15,7 @@ namespace NavigationMVVM.ViewModels
         /// <summary>
         /// Получаем текущую модель представления из хранилища навигации
         /// </summary>
-        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;/*Текущее свойство вью модел в основной модели просмотра, которое определяет представление для приложения*/
 
         public MainViewModel(NavigationStore navigationStore)
         {
@@ -29,3 +29,6 @@ namespace NavigationMVVM.ViewModels
         }
     }
 }
+
+/*2 и наша основная модель просмотра прослушивает это событие. Мы вызываем его OnPropertyChanged(nameof(CurrentViewModel)); 
+ * при изменении свойства для текущей модели просмотра CurrentViewModel => _navigationStore.CurrentViewModel; а затем наше представление меняется*/

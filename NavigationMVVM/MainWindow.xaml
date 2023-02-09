@@ -8,8 +8,8 @@
         xmlns:views="clr-namespace:NavigationMVVM.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
-    <!--Отображение текущей вью модели-->
+
+    <!--Отображение текущей вью модели. CurrentViewModel Текущее свойство в основной модели просмотра, которое определяет представление для приложения-->
     <ContentControl Content="{Binding CurrentViewModel}">
         <!--Сопоставление вью модели со вьюхой-->
         <ContentControl.Resources>
