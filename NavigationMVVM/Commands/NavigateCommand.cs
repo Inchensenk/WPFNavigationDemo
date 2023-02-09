@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace NavigationMVVM.Commands
 {
@@ -15,25 +16,18 @@ namespace NavigationMVVM.Commands
     class NavigateCommand<TViewModel> : CommandBase
         where TViewModel : ViewModelBase/*Ограничение для обобщенного типа, принимаемое значение должно быть классом наследуемым от Базовой модели представления*/
     {
-        private readonly NavigationStore _navigationStore;
-        /// <summary>
-        /// Метод обратного вызова, возвращает текущую модель представления
-        /// </summary>
-        private readonly Func<TViewModel> _createViewModel;
+        
 
-        public NavigateCommand(NavigationStore navigationStore, Func<TViewModel> createViewModel)
+        private readonly NavigationService<TViewModel> _navigationService;
+
+        public NavigateCommand(NavigationService navigationService)
         {
-            _navigationStore = navigationStore;
-            _createViewModel = createViewModel;
+            _navigationService = navigationService;
         }
 
-        /// <summary>
-        /// Устанавливаем текущую модель просмотра хранилища навигации в модель домашнего просмотра AccountViewModel
-        /// </summary>
-        /// <param name="parameter"></param>
         public override void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = _createViewModel();
+
         }
     }
 }
